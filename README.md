@@ -26,7 +26,7 @@ Security comes from two layers:
 
 ---
 
-## Installation
+![Installation](Screenshot/installer.png)
 
 ```bash
 chmod +x install.sh
