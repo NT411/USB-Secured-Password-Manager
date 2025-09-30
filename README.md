@@ -66,7 +66,10 @@ Do not unlpug the usb before you unmount it and lock it
 
     Enter to select
 
-    Options: Add, View, Edit, Delete, Quit
+    Options: Add, View, Edit, Copy, Delete, Quit
+    
+![Installation](Screenshots/psm2.png)
+    
 
 How it Works
 
