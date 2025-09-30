@@ -9,12 +9,12 @@ VAULT_DIR = Path(f"/home/{USER}/mnt/usb_secure")
 VAULT_FILE = VAULT_DIR / "vault.json"
 KEY_FILE = VAULT_DIR / "vault.key"
 
-# 🔒 check USB + key file
+# check USB + key file
 if not VAULT_DIR.exists() or not KEY_FILE.exists():
     print("❌ Secure USB not mounted or missing key. Please run 'usbon'.")
     exit(1)
 
-# 🔑 load encryption key
+# load encryption key
 vault_key = KEY_FILE.read_bytes()
 fernet = Fernet(vault_key)
 
