@@ -25,15 +25,16 @@ Security comes from two layers:
 - Python packages: `cryptography`, `pyperclip`, `argon2-cffi`
 
 ---
-
-![Installation](Screenshot/installer.png)
+## Installation
 
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 Choose your Linux distro (Arch/Manjaro, Fedora, Debian/Ubuntu) and follow prompts.
-The installer will:
+![Installation](Screenshots/installer.png)
+
+    The installer will:
 
     Install required dependencies
 
