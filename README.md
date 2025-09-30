@@ -28,8 +28,16 @@ Security comes from two layers:
 ## Installation
 
 ```bash
+git clone https://github.com/NT411/USB-Secured-Password-Manager.git
+```
+```bash
+cd USB-Secured-Password-Manager
+```
+```bash
 chmod +x install.sh
-./install.sh
+```
+```bash
+sudo ./install.sh
 ```
 Choose your Linux distro (Arch/Manjaro, Fedora, Debian/Ubuntu) and follow prompts.
 ![Installation](Screenshots/installer.png)
