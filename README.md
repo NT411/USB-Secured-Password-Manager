@@ -13,8 +13,7 @@ Security comes from two layers:
 - Fernet encryption of vault file  
 - Unique Fernet key stored only on USB  
 - Vault file permission hardened to `600`  
-- Argon2 password hashing support / Soon 
-- Clipboard copy for credentials (no echo)  
+- Argon2 password hashing support / Soon  
 - Aliases (`usbon` / `usboff`) for secure mount/unmount  
 
 ---
@@ -74,7 +73,7 @@ Do not unlpug the usb before you unmount it and lock it
 
     Enter to select
 
-    Options: Add, View, Edit, Copy, Delete, Quit
+    Options: Add, View, Edit, Delete, Quit
     
 ![Installation](Screenshots/psm2.png)
     
