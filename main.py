@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import curses, json, pyperclip
+import curses, json
 from pathlib import Path
 import os
 from cryptography.fernet import Fernet  
@@ -27,6 +27,7 @@ def save():
     data = json.dumps(vault, indent=2).encode()
     VAULT_FILE.write_bytes(fernet.encrypt(data))
     os.chmod(VAULT_FILE, 0o600) 
+
 def add_password(stdscr):
     curses.echo()
     stdscr.clear()
@@ -43,30 +44,13 @@ def add_password(stdscr):
     stdscr.getch()
 
 def view_details(stdscr, service):
-    while True:
-        stdscr.clear()
-        u,p = vault[service]["username"], vault[service]["password"]
-        options = ["Copy username","Copy password","Back"]
-        stdscr.addstr(0,0,f"Service: {service}")
-        stdscr.addstr(1,0,f"Username: {u}")
-        stdscr.addstr(2,0,f"Password: {p}")
-        idx = 0
-        while True:
-            for i,opt in enumerate(options):
-                if i==idx:
-                    stdscr.attron(curses.A_REVERSE)
-                    stdscr.addstr(i+4,0,opt)
-                    stdscr.attroff(curses.A_REVERSE)
-                else:
-                    stdscr.addstr(i+4,0,opt)
-            key = stdscr.getch()
-            if key == curses.KEY_UP: idx = (idx-1)%len(options)
-            elif key == curses.KEY_DOWN: idx = (idx+1)%len(options)
-            elif key in [curses.KEY_ENTER,10,13]:
-                if options[idx]=="Copy username": pyperclip.copy(u)
-                elif options[idx]=="Copy password": pyperclip.copy(p)
-                elif options[idx]=="Back": return
-                break
+    stdscr.clear()
+    u, p = vault[service]["username"], vault[service]["password"]
+    stdscr.addstr(0,0,f"Service:  {service}")
+    stdscr.addstr(1,0,f"Username: {u}")
+    stdscr.addstr(2,0,f"Password: {p}")
+    stdscr.addstr(4,0,"(Press any key to go back)")
+    stdscr.getch()  # read-only view; no copy options
 
 def edit_details(stdscr, service):
     curses.echo()
